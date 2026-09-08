@@ -388,8 +388,7 @@ AV_CORE/
     └── ...
 ```
 
-The repository also contains supporting documentation, wiring diagrams, and demonstration videos.
-
+The repository also contains supporting documentation and wiring diagrams
 ---
 
 # Results

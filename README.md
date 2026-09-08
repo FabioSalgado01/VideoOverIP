@@ -14,6 +14,8 @@ The system uses **Power over Ethernet (PoE)** to provide both power and network 
 
 ### System Pipeline
 
+![AVoIP System Pipeline](systemLayout.png)
+
 The system consists of three primary types of nodes:
 
 ### Encoder

@@ -1,0 +1,25 @@
+[Unit]
+Description=AV over IP H264 Receiver
+After=network-online.target graphical.target
+Wants=network-online.target
+
+
+[Service]
+Type=simple
+User=fabio
+
+SupplementaryGroups=video render
+
+ExecStartPre=/bin/sleep 10
+
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/fabio/.Xauthority
+
+ExecStart=/usr/bin/gst-launch-1.0 -v udpsrc port=5000 buffer-size=2097152 caps="application/x-rtp,media=video,encoding-name=H264,payload=96,clock-rate=90000" ! rtpjitterbuffer latency=300 ! rtph264depay ! h264parse ! v4l2h264dec ! video/x-raw,width=1920,height=1080 ! videoconvert ! kmssink sync=false
+
+Restart=always
+RestartSec=2
+
+
+[Install]
+WantedBy=multi-user.target
